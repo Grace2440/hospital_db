@@ -1,4 +1,5 @@
 # hospital_db
+```text
 
 <h4>Entity Relationship Diagram</h4
 
@@ -43,3 +44,6 @@
 										| type	VARCHAR(150) NOT NULL			       |
 										|accreditation_status VARCHAR(150) NOT NULL	       |
 								                +------------------------------------------------------+
+
+
+```
