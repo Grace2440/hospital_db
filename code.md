@@ -22,7 +22,7 @@ Table patients {<br>
   date_of_birth  date<br>
   address varchar<br>
   role varchar<br>
-  doctor_id intege<br>r
+  doctor_id integer<br>
 }<br>
 
 Table prescriptions {<br>
@@ -43,20 +43,26 @@ Ref: prescriptions.doctor_id > doctors.personal_id<br>
 
 To print a list of all doctors based at a hospital_id (5):<br>
         SELECT * FROM doctors WHERE hospital_id = 5;<br>
+<br>
 To print a list of all prescriptions for a patient (105), ordered by the prescription date:<br>
         SELECT * FROM prescriptions WHERE patient_id = 105<br>
-        ORDER BY prescription_date ASC;<br>
+        ORDER BY prescription_date ASC;
+<p>
 To print a list of all prescriptions that doctor (5) has prescribed:<br>
-        SELECT * FROM prescriptions WHERE doctor_id = 5;<br>
-To add a new patient to the database, including being registered with one of the doctors:<br>
+        SELECT * FROM prescriptions WHERE doctor_id = 5;
+</p>
+<p>
+To add a new patient to the database, including being registered with one of the doctors:
         INSERT INTO patients (name, date_of_birth, address, role, doctor_id)<br>
-        VALUES ('James Dole', '2000-05-12', '12 Lagos Street', 'Patient', 1);<br>
+        VALUES ('James Dole', '2000-05-12', '12 Lagos Street', 'Patient', 1);<br></p>
+<p>
 Identify which doctor has made the most prescriptions:<br>
         SELECT doctor_id, COUNT(*) AS total_prescriptions<br>
         FROM prescriptions<br>
         GROUP BY doctor_id<br>
         ORDER BY total_prescriptions DESC<br>
-        LIMIT 1;<br>
+        LIMIT 1;<br></p>
+<p>
 Print a list of all doctors at the hospital with biggest size(number of beds):<br>
         SELECT d.personal_id, d.name, h.name AS hospital_name, h.size<br>
         FROM doctors d<br>
@@ -65,4 +71,4 @@ Print a list of all doctors at the hospital with biggest size(number of beds):<b
                 SELECT MAX(size)<br>
                 FROM hospitals<br>
                         );<br>
-
+</p>
